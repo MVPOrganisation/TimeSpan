@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Created by Ken on 21-3-2017.
+ * Test for the appointment class
  */
 class AppointmentTest {
 
