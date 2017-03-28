@@ -29,8 +29,7 @@ class AppointmentTest {
 
     @Test
     void getTimeSpan() {
-        TimeSpan t = new TimeSpan(new Time(2000, 1, 1, 10, 0), new Time(2000, 1, 1, 12, 0));
-        assertEquals(t, a1.getTimeSpan());
+        assertEquals(10, a1.getTimeSpan().getBeginTime().getHours());
     }
 
     @Test
@@ -53,12 +52,40 @@ class AppointmentTest {
         ken.addAppointment(a2);
         assertEquals(true, a1.addContact(ken));
         ken.addAppointment(overlapAppointment);
-        assertEquals(false, a1.addContact(ken));
+        assertEquals(false, a2.addContact(ken));
     }
 
     @Test
     void removeContact() {
 
+
+        int size = 0;
+        Iterator it = a1.invitees();
+        while(it.hasNext()) {
+            size++;
+            it.next();
+        }
+        assertEquals(0, size);
+
+        assertEquals(true, a1.addContact(ken));
+
+        int size1 = 0;
+        Iterator it1 = a1.invitees();
+        while(it1.hasNext()) {
+            size1++;
+            it1.next();
+        }
+        assertEquals(1, size1);
+
+        a1.removeContact(ken);
+
+        int size2 = 0;
+        Iterator it2 = a1.invitees();
+        while(it2.hasNext()) {
+            size2++;
+            it2.next();
+        }
+        assertEquals(0, size2);
     }
 
 }
