@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- * Created by Ken on 21-3-2017.
+ * @author Ken , Max on 21-3-2017.
  */
 public class Appointment {
     private String subject;
